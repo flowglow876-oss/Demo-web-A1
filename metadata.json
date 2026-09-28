@@ -1,0 +1,6 @@
+{
+  "name": "AVA Dental & Implant Studio",
+  "description": "Premium cosmetic dentistry, digital smile design, and dental implantology clinic in Aligarh, Uttar Pradesh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

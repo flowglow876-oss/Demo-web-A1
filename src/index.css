@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #F7F6F2;
+    --text-primary: #111111;
+    --text-secondary: #737373;
+    --text-muted: #9E9E9E;
+    
+    --accent-lavender: #B69CFF;
+    --accent-violet: #7C5CFF;
+    --accent-aqua: #65D8FF;
+    --accent-mint: #8DE8C1;
+    --accent-coral: #FF8E87;
+    --accent-peach: #FFC69C;
+
+    --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-ivory);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-accent {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+/* Glass and glow styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+}
+
+.glass-panel-dark {
+  background: rgba(18, 18, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 768px) {
+  .glass-panel-dark {
+    background: rgba(18, 18, 20, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+.glow-lavender {
+  box-shadow: 0 0 40px -10px rgba(182, 156, 255, 0.35);
+}
+
+.glow-aqua {
+  box-shadow: 0 0 40px -10px rgba(101, 216, 255, 0.35);
+}
+
+.glow-mint {
+  box-shadow: 0 0 40px -10px rgba(141, 232, 193, 0.35);
+}
+
+.glow-coral {
+  box-shadow: 0 0 40px -10px rgba(255, 142, 135, 0.35);
+}
+
+.glow-ambient {
+  box-shadow: 0 20px 60px -15px rgba(124, 92, 255, 0.12), 0 0 30px -5px rgba(101, 216, 255, 0.08);
+}
+
+/* Subtle Film Grain */
+.bg-grain {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle Grid */
+.bg-grid-subtle {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+}
+
+/* Aurora Keyframe Animation */
+@keyframes aurora-flow {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1) rotate(4deg);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+}
+
+.animate-aurora {
+  animation: aurora-flow 24s ease-in-out infinite;
+}
+
+.animate-aurora-reverse {
+  animation: aurora-flow 28s ease-in-out infinite reverse;
+}
+
+/* Marquee Animation */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for clean horizontal swipe */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Butterfly Wing Fluttering 3D animations */
+@keyframes wingFlutterLeft {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-68deg);
+  }
+}
+
+@keyframes wingFlutterRight {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(68deg);
+  }
+}
+
+.animate-wing-left {
+  animation: wingFlutterLeft 0.22s ease-in-out infinite;
+  transform-origin: right center;
+}
+
+.animate-wing-right {
+  animation: wingFlutterRight 0.22s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+/* Meadow Grass & Wildflower Swaying */
+@keyframes grassBreeze {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2.8deg) skewX(1.5deg);
+  }
+  100% {
+    transform: rotate(-1.5deg) skewX(-1deg);
+  }
+}
+
+@keyframes grassBreezeSoft {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-2.2deg) skewX(-1.2deg);
+  }
+  100% {
+    transform: rotate(1.8deg) skewX(0.8deg);
+  }
+}
+
+.animate-grass-sway {
+  animation: grassBreeze 4.5s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.animate-grass-sway-soft {
+  animation: grassBreezeSoft 5.8s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+/* Cloud Slow Horizontal Drift */
+@keyframes cloudDriftSlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-cloud-slow {
+  animation: cloudDriftSlow 75s linear infinite;
+}
+
+.animate-cloud-medium {
+  animation: cloudDriftSlow 48s linear infinite;
+}
+
+/* Sun Lens Bloom Breathing */
+@keyframes sunGlowPulse {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+}
+
+.animate-sun-glow {
+  animation: sunGlowPulse 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-aurora-reverse,
+  .animate-marquee,
+  .animate-wing-left,
+  .animate-wing-right,
+  .animate-grass-sway,
+  .animate-grass-sway-soft,
+  .animate-cloud-slow,
+  .animate-cloud-medium,
+  .animate-sun-glow {
+    animation: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
